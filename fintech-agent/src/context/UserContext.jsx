@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get(`http://localhost:5001/api/users/${email}`);
+      const res = await axios.get(`https://fitech.onrender.com/api/users/${email}`);
       setUserData(res.data);
       // Ensure we're setting chatHistory correctly
       const history = Array.isArray(res.data.chatHistory) ? res.data.chatHistory : [];
@@ -27,7 +27,7 @@ export const UserProvider = ({ children }) => {
       try {
         // Extract name from email if needed, or use a default
         const name = email.split("@")[0] || "User";
-        const res = await axios.post("http://localhost:5001/api/users", { name, email });
+        const res = await axios.post("https://fitech.onrender.com/api/users", { name, email });
         setUserData(res.data);
         setChatHistory([]);
       } catch (createErr) {
@@ -38,7 +38,7 @@ export const UserProvider = ({ children }) => {
 
   const updateUserData = async (data) => {
     try {
-      const res = await axios.put(`http://localhost:5001/api/users/update/${email}`, data);
+      const res = await axios.put(`https://fitech.onrender.com/api/users/update/${email}`, data);
       setUserData(res.data);
       return res.data;
     } catch (err) {
@@ -53,7 +53,7 @@ export const UserProvider = ({ children }) => {
     
     try {
       // Send the message to the backend
-      await axios.post(`http://localhost:5001/api/users/chat/${email}`, {
+      await axios.post(`https://fitech.onrender.com/api/users/chat/${email}`, {
         sender: message.sender,
         message: message.message
       });
