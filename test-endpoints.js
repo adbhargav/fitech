@@ -21,14 +21,14 @@ const testUserData = {
 async function testEndpoints() {
   try {
     console.log('Testing user creation...');
-    const createUserResponse = await axios.post('http://localhost:5001/api/users', {
+    const createUserResponse = await axios.post('https://fitech.onrender.com/api/users', {
       name: testUserData.name,
       email: testUserData.email
     });
     console.log('User created:', createUserResponse.data);
 
     console.log('\nTesting user data update...');
-    const updateResponse = await axios.put(`http://localhost:5001/api/users/update/${testEmail}`, {
+    const updateResponse = await axios.put(`https://fitech.onrender.com/api/users/update/${testEmail}`, {
       incomeSources: testUserData.incomeSources,
       expenses: testUserData.expenses,
       savingsGoal: testUserData.savingsGoal
@@ -40,7 +40,7 @@ async function testEndpoints() {
     console.log('User data retrieved:', getResponse.data);
 
     console.log('\nTesting AI advice generation...');
-    const adviceResponse = await axios.get(`http://localhost:5001/api/users/advice/${testEmail}`);
+    const adviceResponse = await axios.get(`https://fitech.onrender.com/api/users/advice/${testEmail}`);
     console.log('AI advice:', adviceResponse.data);
 
     console.log('\nAll tests passed!');
