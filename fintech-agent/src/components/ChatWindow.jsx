@@ -29,7 +29,7 @@ const ChatWindow = () => {
     setIsLoading(true);
     try {
       // Get contextual AI advice from the new endpoint
-      const res = await axios.post(`http://localhost:5001/api/ai/contextual`, {
+      const res = await axios.post(`https://fitech.onrender.com/api/ai/contextual`, {
         email: email,
         message: inputText,
       });
@@ -45,7 +45,7 @@ const ChatWindow = () => {
       console.error("Chat error:", err);
       // Fallback to the simple chat endpoint
       try {
-        const fallbackRes = await axios.post(`http://localhost:5001/api/chat`, {
+        const fallbackRes = await axios.post(`https://fitech.onrender.com/api/chat`, {
           message: inputText,
         });
         
