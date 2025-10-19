@@ -12,14 +12,14 @@ const testTransactionData = `Date	Type	Transaction Description	Amount	Category
 async function testTransactionImport() {
   try {
     console.log('Testing transaction import...');
-    const importResponse = await axios.post('http://localhost:5001/api/users/import-transactions', {
+    const importResponse = await axios.post('https://fitech.onrender.com/api/users/import-transactions', {
       email: testEmail,
       transactionData: testTransactionData
     });
     console.log('Transaction import result:', importResponse.data);
 
     console.log('\nTesting transaction analysis...');
-    const analysisResponse = await axios.get(`http://localhost:5001/api/users/analysis/${testEmail}`);
+    const analysisResponse = await axios.get(`https://fitech.onrender.com/api/users/analysis/${testEmail}`);
     console.log('Transaction analysis:', analysisResponse.data);
 
     console.log('\nTransaction import test passed!');
