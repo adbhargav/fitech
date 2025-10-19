@@ -25,7 +25,7 @@ const TransactionImport = () => {
     setImportResult(null);
 
     try {
-      const response = await axios.post('http://localhost:5001/api/users/import-transactions', {
+      const response = await axios.post('https://fitech.onrender.com/api/users/import-transactions', {
         email,
         transactionData
       });
